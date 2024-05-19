@@ -88,7 +88,10 @@ function Game() {
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
             </div>
             <div className='game-info ml-[20px]'>
-                <ol>{moves}</ol>
+                <ol>
+                    {moves}
+                    <li>You are at move #{moves.length}</li>
+                </ol>
             </div>
         </div>
     );
