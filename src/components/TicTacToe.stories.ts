@@ -4,6 +4,8 @@ import { TicTacToe } from './TicTacToe';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 /**
  * [チュートリアル：三目並べ – React](https://ja.react.dev/learn/tutorial-tic-tac-toe)
+ * 
+ * TODO: チュートリアルのPlus Ultra部分は、テストコードを実装してから進める
 */
 const meta = {
   title: 'react.dev/LEARN REACT/クイックスタート/チュートリアル：三目並べ',
