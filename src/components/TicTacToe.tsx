@@ -6,6 +6,7 @@ function Square({
 }: { value: string | null; onSquareClick: () => void }) {
 	return (
 		<button
+            type="button"
 			className="border float-left text-2xl font-[bold] leading-[34px] h-[34px] text-center w-[34px] -mr-px -mt-px p-0 border-solid border-[#999]"
 			onClick={onSquareClick}
 		>
@@ -24,7 +25,7 @@ function Board({
 	onPlay: (squares: Array<string | null>) => void;
 }) {
 	const winner = calculateWinner(squares);
-	let status;
+	let status: string;
 	if (winner) {
 		status = `Winner: ${winner}`;
 	} else {
@@ -46,11 +47,12 @@ function Board({
 		<>
 			<div className="mb-[10px]">{status}</div>
 			{[1, 2, 3].map((row) => (
-				<div className="clear-both content-[''] table">
+				<div key={row} className="clear-both content-[''] table">
 					{[1, 2, 3].map((col) => {
 						const cell = (row - 1) * 3 + col - 1;
 						return (
 							<Square
+                                key={cell}
 								value={squares[cell]}
 								onSquareClick={() => handleClick(cell)}
 							/>
@@ -83,13 +85,14 @@ function Game() {
 	const moves = history.map((squares, move) => {
 		let description: string;
 		if (move > 0) {
-			description = "Go to move #" + move;
+			description = `Go to move #${move}`;
 		} else {
 			description = "Go to game start";
 		}
+		const uniqueKey = `move-${move}`;
 		return (
-			<li key={move}>
-				<button className="border hover:font-bold" onClick={() => jumpTo(move)}>
+			<li key={uniqueKey}>
+				<button type="button" className="border hover:font-bold" onClick={() => jumpTo(move)}>
 					{description}
 				</button>
 			</li>
