@@ -6,7 +6,7 @@ function Square({
 }: { value: string | null; onSquareClick: () => void }) {
 	return (
 		<button
-            type="button"
+			type="button"
 			className="border float-left text-2xl font-[bold] leading-[34px] h-[34px] text-center w-[34px] -mr-px -mt-px p-0 border-solid border-[#999]"
 			onClick={onSquareClick}
 		>
@@ -52,7 +52,7 @@ function Board({
 						const cell = (row - 1) * 3 + col - 1;
 						return (
 							<Square
-                                key={cell}
+								key={cell}
 								value={squares[cell]}
 								onSquareClick={() => handleClick(cell)}
 							/>
@@ -92,7 +92,11 @@ function Game() {
 		const uniqueKey = `move-${move}`;
 		return (
 			<li key={uniqueKey}>
-				<button type="button" className="border hover:font-bold" onClick={() => jumpTo(move)}>
+				<button
+					type="button"
+					className="border hover:font-bold"
+					onClick={() => jumpTo(move)}
+				>
 					{description}
 				</button>
 			</li>
